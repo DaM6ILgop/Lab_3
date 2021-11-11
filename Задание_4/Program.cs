@@ -25,6 +25,15 @@ namespace Задание_4_лаба_3
             }
             return DiffMassive;
         }
+        static int[,] MasssiveSr(int[,] MasisveOne, int[,] MassiveTWo) {
+            int[,] SrMassive = new int[3, 3];
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {              
+                    SrMassive[i, j] = MassiveOne[i, j] + MassiveTwo[i, j]/2;
+                }
+            }
+            return SrMassive;
+        }
 
         static void Main(string[] args)
         {
@@ -53,7 +62,7 @@ namespace Задание_4_лаба_3
             Console.WriteLine("=============================|");
             point:
             try {
-                Console.WriteLine("Выберите операцию с массивом: \nСумма--1, Разность--2 ");
+                Console.WriteLine("Выберите операцию с массивом: \nСумма--(1), Разность--(2), Среднее значение--(/)");
                 int input = int.Parse(Console.ReadLine());
 
                 if (input == 1) {
@@ -71,7 +80,15 @@ namespace Задание_4_лаба_3
                         }
                     }
                     Console.WriteLine(" ");
-                }               
+                }
+                else if (input == /) {
+                    for (int i = 0; i < 3; i++) {                    
+                        for (int j = 0; j < 3; j++) {                      
+                            Console.Write(MasssiveSr(MassiveOne, MassiveTwo)[i, j] + " ");
+                        }
+                    }
+                    Console.WriteLine(" ");
+                }
             }
             catch (FormatException) {
                 Console.WriteLine("Invalid Syntax. Enter the number");
