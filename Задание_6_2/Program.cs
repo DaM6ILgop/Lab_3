@@ -8,20 +8,21 @@ namespace Задание_6_2
         
         static void Main(string[] args)
         {
-            int recursion(int[] array) {
+            int sum(int[] array) {
                 array = new int[10];
                 Random rand = new Random();
 
-               int recursion = 0;               
+               int sum = 0;               
                 for (int i = 0; i<array.Length;++i) {
                     array[i] = rand.Next(1, 10);
-                    recursion += array[i];
-                    Console.WriteLine(array[i]);
-                }              
-                return recursion;
+                   sum += array[i];
+                    Console.WriteLine($"|{ array[i]}|");
+                }
+               
+                return sum;
             }
             int[] f = new int[0];          
-            Console.WriteLine($"Сумма элементов массива равна: {recursion(f)}");
+            Console.WriteLine($"Сумма элементов массива равна: |{sum(f)}|");
         }  
     }
 }
