@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Задание_7
 {
@@ -6,18 +7,15 @@ namespace Задание_7
     {
         static void Main(string[] args)
         {
-            int fibo(int n)
-            {
-                if (n == 1 || n == 2)
-                {
+            int fibo(int n) {
+                if (n == 1 || n == 2) {
                     return 1;
                 }
-                else
-                {
+                else {
                     return fibo(n - 1) + fibo(n - 2);
                 }
             }
-        point:
+            point:
             Console.WriteLine("Введите число для нахождения члена ряда Фибоначчи");
             int f = int.Parse(Console.ReadLine());
             Console.WriteLine($"Под номером |{f}| стоит число -- |{fibo(f)}| из ряда Фибоначчи");
