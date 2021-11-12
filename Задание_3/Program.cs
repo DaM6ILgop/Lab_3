@@ -6,27 +6,30 @@ namespace Задание_3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите кол-во эллементов массива: ");
-            int MassiveSize = int.Parse(Console.ReadLine());
-            int[] Array = new int[MassiveSize];
+            Console.WriteLine("Введите кол-во элементов массива");
+            int arrayElement = int.Parse(Console.ReadLine());
+            int[] Array = new int[arrayElement];
+            Random rand = new Random();
 
-            for (int i = 0; i < Array.Length; i++) {
+            int k = 1;
+            for (int i = 0; i < Array.Length; i++) {               
+                Array[i] = rand.Next(1, 10);
                 Console.Write(Array[i] + " ");
             }
-
-            Console.WriteLine("Измененный массив: ");
-            const int k = 2;
+            Console.WriteLine(" ");
+            Console.WriteLine("==================================|");
+            Console.WriteLine($"Массив со сдвигом на элемент: {k}");
             for (int i = 0; i < k; ++i) {
-                int Temp;
-                for (int j = 0; j < MassiveSize - 1; j++) {
+                int temp = Array[0];
+                for (int j = 0; j < arrayElement - 1; j++) { 
                     Array[j] = Array[j + 1];
-                    int temp = Array[Array.Length - 1];
-                }               
+                    Array[arrayElement - 1] = temp;
+                }
             }
-            for (int i = 0; i < MassiveSize; ++i) {
-                Console.Write(Array[i] + " ");
-            }                
-            Console.WriteLine();
+            for (int i = 0; i < arrayElement; ++i) {
+                Console.Write(Array[i]+ " ");
+            }
+            Console.WriteLine(" ");
         }
     }
 }
